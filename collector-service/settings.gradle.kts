@@ -1,0 +1,5 @@
+rootProject.name = "collector-service"
+
+
+
+

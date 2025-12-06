@@ -1,0 +1,17 @@
+# Client Service Configuration
+spring:
+  application:
+    name: client-service
+
+server:
+  port: 8080
+
+# Collector service URL
+collector:
+  url: http://localhost:8081
+
+# Rate limiter configuration (matching assignment example format)
+monitoring:
+  rateLimit:
+    service: client-service
+    limit: 100  # Default: 100 requests per second

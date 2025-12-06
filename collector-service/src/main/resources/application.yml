@@ -1,0 +1,38 @@
+# =====================================================
+# Collector Service Configuration
+# =====================================================
+# This service connects to MongoDB and uses TWO databases:
+#   - logsdb: for API logs
+#   - metadatadb: for alerts and issues
+
+spring:
+  application:
+    name: collector-service
+
+server:
+  port: 8081
+
+# MongoDB connection settings (used by our custom config)
+mongodb:
+  # Logs database - stores API request logs
+  logs:
+    uri: mongodb://localhost:27017/logsdb
+    database: logsdb
+  
+  # Metadata database - stores alerts and issues
+  metadata:
+    uri: mongodb://localhost:27017/metadatadb
+    database: metadatadb
+
+# JWT Configuration (use environment variable JWT_SECRET in production!)
+jwt:
+  secret: ${JWT_SECRET:my-super-secret-key-that-is-at-least-256-bits-long-for-hs256}
+  issuer: collector-service
+  expiresInSec: 3600
+
+# Rate limiting configuration
+ratelimits:
+  default: 100
+  map:
+    client-service: 30
+    collector-service: 200
