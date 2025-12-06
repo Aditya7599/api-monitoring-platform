@@ -400,7 +400,8 @@ Priority order:
 
 7. **Database Rate Limit Overrides**: Allows runtime configuration without service restart.
 
-## 👤 Aditya kashyap
+## build by - Aditya kashyap
 
-Built for API Monitoring & Observability Platform Assignment
+API Monitoring & Observability Platform 
+
 
